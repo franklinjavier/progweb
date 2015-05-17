@@ -12,6 +12,6 @@
   </head>
   <body>
     <h1>ProgWeb</h1>
-    <p>With Spring Framework</p>
+    <p>Projeto interdisciplinar da Anhembi Morumbi</p>
   </body>
 </html>
