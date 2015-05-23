@@ -1,3 +1,5 @@
+import com.jamesward.play.BrowserNotifierKeys
+
 name := """progweb"""
 
 version := "1.0-SNAPSHOT"
@@ -12,3 +14,5 @@ libraryDependencies ++= Seq(
   cache,
   javaWs
 )
+
+BrowserNotifierKeys.shouldOpenBrowser := false
