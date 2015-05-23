@@ -14,11 +14,10 @@ http://progweb-anhembi.appspot.com/
 
 ## Framework
 
-Play Framework
+Play Framework 2.3.x
 
 
 ## Como rodar
 - $ activator run
 - Abra no seu navegador http://localhost:9000
-
 
