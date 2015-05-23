@@ -14,4 +14,4 @@ http://progweb-anhembi.appspot.com/
 
 ## Framework
 
-Spring MVC
+Play Framework
