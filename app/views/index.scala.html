@@ -11,9 +11,9 @@
 
 	<ul id="persons"></ul>
 
-	<form method="POST" action="@routes.Application.addPerson()">
+	<form method="POST" action="@routes.User.addPerson()">
 		<input type="text" name="name"/>
 		<button>Add Person</button>
 	</form>
-	<a href="@routes.Application.getUsers()"><h2>View All Users</h2></a>
+	<a href="@routes.User.getJson()"><h2>View All Users</h2></a>
 }
