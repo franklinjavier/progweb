@@ -4,9 +4,9 @@ Projeto interdisciplinar do curso de Análise e Desenvolvimento de Sistemas da A
 
 ## Link
 
-http://progweb-anhembi.appspot.com/
+http://progweb.herokuapp.com/
 
-* hospedado em Google App Engine
+* hospedado em Heroku
 
 ## Java
 
