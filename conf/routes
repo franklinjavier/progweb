@@ -3,11 +3,12 @@
 # ~~~~
 
 # Home page
-GET    /               controllers.Application.index()
-POST   /user           controllers.Application.addPerson()
-GET    /persons        controllers.Application.getPersons
-GET    /user           controllers.Application.getUsers
-GET    /json           controllers.Application.getJson()
+GET    /                    controllers.Application.index()
+#GET    /hello/:name/:age    controllers.Application.hello(name: String, age: Int)
+POST   /user/               controllers.User.addPerson()
+GET    /user/persons        controllers.User.getPersons
+GET    /user/users           controllers.User.getUsers
+GET    /user/json           controllers.User.getJson()
 
 # Map static resources from the /public folder to the /assets URL path
 GET    /assets/*file   controllers.Assets.at(path="/public", file)

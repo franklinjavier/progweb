@@ -12,7 +12,7 @@ public class Person extends Model {
 	 */
     private static final long serialVersionUID = 1L;
 
-	@Id
+    @Id
 	public int id;
 
 	public String name;
