@@ -15,5 +15,5 @@ mysql:
   version: '5.5'
 enviroment:
   DB_URL: ''
-  DB_USER: ''
+  DB_USER: 'root'
   DB_PASS: ''
