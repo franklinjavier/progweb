@@ -4,14 +4,14 @@
 # --- !Ups
 
 create table blog (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   header                    varchar(255),
   text                      TEXT,
   constraint pk_blog primary key (id))
 ;
 
 create table client (
-  cod_cliente               integer auto_increment not null,
+  cod_cliente               integer not null,
   nome                      varchar(255),
   cpf                       varchar(255),
   cnpj                      varchar(255),
@@ -21,17 +21,25 @@ create table client (
 ;
 
 create table comment (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   text                      varchar(255),
   blog_id                   bigint,
   constraint pk_comment primary key (id))
 ;
 
 create table person (
-  id                        integer auto_increment not null,
+  id                        integer not null,
   name                      varchar(255),
   constraint pk_person primary key (id))
 ;
+
+create sequence blog_seq;
+
+create sequence client_seq;
+
+create sequence comment_seq;
+
+create sequence person_seq;
 
 alter table comment add constraint fk_comment_blog_1 foreign key (blog_id) references blog (id) on delete restrict on update restrict;
 create index ix_comment_blog_1 on comment (blog_id);
@@ -40,15 +48,23 @@ create index ix_comment_blog_1 on comment (blog_id);
 
 # --- !Downs
 
-SET FOREIGN_KEY_CHECKS=0;
+SET REFERENTIAL_INTEGRITY FALSE;
 
-drop table blog;
+drop table if exists blog;
 
-drop table client;
+drop table if exists client;
 
-drop table comment;
+drop table if exists comment;
 
-drop table person;
+drop table if exists person;
 
-SET FOREIGN_KEY_CHECKS=1;
+SET REFERENTIAL_INTEGRITY TRUE;
+
+drop sequence if exists blog_seq;
+
+drop sequence if exists client_seq;
+
+drop sequence if exists comment_seq;
+
+drop sequence if exists person_seq;
 
