@@ -1,16 +1,13 @@
 ---
 java:
-  java_version: 'java-7-openjdk'
+  java_version: 'java-8-openjdk'
+hooks:
+  worker_setup: " wget http://downloads.typesafe.com/typesafe-activator/1.3.2/typesafe-activator-1.3.2-minimal.zip && unzip typesafe-activator-1.3.2-minimal.zip"
 tests:
-  - type: custom                         # Jasmine javascript test runner with more verbose syntax
-    command: activator test
-    invocation: single
-    output: exit-status
-test_pattern:
-  - features/*.feature
-  - features/api/*.feature
-  - spec/**/*_spec.rb
-  - test/**/*_test.rb
+  - type: custom
+    command: "activator-1.3.2-minimal/activator test"
+    invocation: "single"
+    output: "exit-status"
 mysql:
   version: '5.5'
 enviroment:
