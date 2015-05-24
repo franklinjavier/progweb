@@ -5,21 +5,29 @@
 #
 # Home page
 #
-GET    /                  controllers.Application.index()
+GET    /                  controllers.ApplicationController.index()
 
 #
 # User
 #
-POST /user/               controllers.User.addPerson()
-GET  /user/persons        controllers.User.getPersons
-GET  /user/users          controllers.User.getUsers
-GET  /user/json           controllers.User.getJson()
+GET  /user                controllers.UserController.index()
+POST /user                controllers.UserController.addPerson()
+GET  /user/persons        controllers.UserController.getPersons
+GET  /user/users          controllers.UserController.getUsers
+GET  /user/list           controllers.UserController.getJson()
 
 #
 # Login
 #
-GET    /signin            controllers.Login.signin()
-GET    /signup            controllers.Login.signup()
+GET    /signin            controllers.LoginController.signin()
+GET    /signup            controllers.LoginController.signup()
+
+#
+# Cliente
+#
+GET    /client            controllers.ClientController.index()
+GET    /client/list       controllers.ClientController.list()
+POST   /client/cadastrar  controllers.ClientController.cadastrar()
 
 # Map static resources from the /public folder to the /assets URL path
 GET    /assets/*file   controllers.Assets.at(path="/public", file)

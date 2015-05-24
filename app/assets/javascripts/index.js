@@ -1,8 +1,14 @@
-$(function() { 
+$(function() {
 
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+    $('a').on('click', function(){
+
+        var $this = $(this),
+            hash = $this.attr('href');
+
+        if ( hash !== '#' ) {
+            console.log(hash);
+        }
+
     });
 
 });

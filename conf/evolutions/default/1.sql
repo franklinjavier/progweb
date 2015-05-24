@@ -10,6 +10,16 @@ create table blog (
   constraint pk_blog primary key (id))
 ;
 
+create table client (
+  cod_cliente               integer auto_increment not null,
+  nome                      varchar(255),
+  cpf                       varchar(255),
+  cnpj                      varchar(255),
+  endereco                  varchar(255),
+  cartao_credito            varchar(255),
+  constraint pk_client primary key (cod_cliente))
+;
+
 create table comment (
   id                        bigint auto_increment not null,
   text                      varchar(255),
@@ -33,6 +43,8 @@ create index ix_comment_blog_1 on comment (blog_id);
 SET FOREIGN_KEY_CHECKS=0;
 
 drop table blog;
+
+drop table client;
 
 drop table comment;
 

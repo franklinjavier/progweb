@@ -1,13 +1,10 @@
 package controllers;
 
-import models.User;
-import models.Person;
 import play.*;
 import play.mvc.*;
-
 import views.html.*;
 
-public class Application extends Controller {
+public class ApplicationController extends Controller {
 
     public static Result index() {
         return ok(index.render());

@@ -7,7 +7,7 @@ import play.mvc.*;
 
 import views.html.*;
 
-public class Login extends Controller {
+public class LoginController extends Controller {
 
     public static Result signin() {
         return ok(signin.render());

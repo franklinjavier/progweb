@@ -5,20 +5,15 @@ import static play.libs.Json.toJson;
 import java.util.ArrayList;
 import java.util.List;
 
-//import models.User;
 import models.Person;
-//import play.*;
 
 import play.data.Form;
 import play.db.ebean.Model;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.*;
-//import play.mvc.*;
 
-import views.html.*;
-
-public class User extends Controller {
+public class UserController extends Controller {
 
     public static Result index() {
         return ok(index.render());
@@ -27,7 +22,7 @@ public class User extends Controller {
     public static Result addPerson() {
         Person person = Form.form(Person.class).bindFromRequest().get();
         person.save();
-        return redirect(routes.Application.index());
+        return redirect(routes.ApplicationController.index());
     }
 
     public static Result getPersons() {
