@@ -14,7 +14,6 @@ test_pattern:
 mysql:
   version: '5.5'
 enviroment:
-  DB_URL:
-  DB_USER:
-  DB_PASS:
-
+  DB_URL: ''
+  DB_USER: ''
+  DB_PASS: ''
