@@ -4,17 +4,19 @@
  * @param msg The message to display *
  *************************************@
 
-@()
+@header("Home") { }
 
 @main("Welcome to Play") {
-	<script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
-    <h1>ProgWeb</h1>
 
-	<ul id="persons"></ul>
+    <p>Projeto interdisciplinar do curso de Análise e Desenvolvimento de Sistemas da Anhembi Morumbi.</p>
 
-	<form method="POST" action="@routes.User.addPerson()">
-		<input type="text" name="name"/>
-		<button>Add Person</button>
-	</form>
-	<a href="@routes.User.getJson()"><h2>View All Users</h2></a>
+    @*
+  <ul id="persons"></ul>
+  <form method="POST" action="@routes.User.addPerson()">
+      <input type="text" name="name" class="form-control">
+      <button class="btn btn-success">Add Person</button>
+  </form>
+  <a href="@routes.User.getJson()"><h2>View All Users</h2></a>
+  *@
+
 }

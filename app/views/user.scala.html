@@ -1,9 +1,4 @@
 @(customer: Person, orders: List[Person])
- 
+
 <h1>Welcome @customer.name!</h1>
 
-<ul> 
-@for(order <- orders) {
-  <li>@order.getName()</li>
-} 
-</ul>

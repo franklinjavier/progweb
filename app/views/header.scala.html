@@ -1,0 +1,70 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/vendors.css")">
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
+    <script src="@routes.Assets.at("javascripts/vendors.js")" type="text/javascript"></script>
+</head>
+<body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid page-content-wrapper">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">ProgWeb</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#">Home</a></li>
+
+                    <!-- Login -->
+                    <li><a href="/login">Usuário</a></li>
+
+                    <!-- Client -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Cliente <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/client">Cadastrar</a></li>
+                            <li><a href="#">Localizar</a></li>
+                            <li><a href="#">Alterar</a></li>
+                            <li><a href="/client/list">Listar</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Product -->
+                    <li class="dropdown">
+                        <a href="/product" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Produto <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/product">Cadastrar</a></li>
+                            <li><a href="/product/find">Localizar</a></li>
+                            <li><a href="/product/">Alterar</a></li>
+                            <li><a href="/product/list">Listar</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Preço por quantidade</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+

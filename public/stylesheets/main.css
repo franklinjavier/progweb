@@ -1,0 +1,44 @@
+.navbar-default .navbar-brand {
+    margin-right: 20px;
+}
+
+.page-content-wrapper {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.login {
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px  -150px;
+}
+
+.form-control {
+    height: 40px;
+	border: 1px solid #ddd;
+	/*font-size: 16px;*/
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+
+.form-control:hover,
+.form-control:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
+}
+
+.form-group { overflow: hidden; }
+label { height: 40px; padding-top: 8px; }
+legend { padding-left: 10px; }
+
+label[class*="col-sm-"] {
+    height: 30px;
+}
