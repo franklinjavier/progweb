@@ -11,6 +11,6 @@ tests:
 mysql:
   version: '5.5'
 enviroment:
-  DB_URL: ''
+  DB_URL: 'progweb'
   DB_USER: 'root'
   DB_PASS: ''
