@@ -7,7 +7,6 @@
 #   and add the worker's SSH public key the Heroku app's accepted keys.
 #
 # Enjoy! -- wvengen
-
 require 'rake'
 
 def tddium_want_staging_build?
