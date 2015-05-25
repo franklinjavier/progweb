@@ -2,10 +2,10 @@
 java:
   java_version: 'java-8-openjdk'
 hooks:
-  worker_setup: " wget http://downloads.typesafe.com/typesafe-activator/1.3.2/typesafe-activator-1.3.2-minimal.zip && unzip typesafe-activator-1.3.2-minimal.zip"
+  worker_setup: "wget http://downloads.typesafe.com/typesafe-activator/1.3.2/typesafe-activator-1.3.2.zip && unzip typesafe-activator-1.3.2.zip"
 tests:
   - type: custom
-    command: "activator-1.3.2-minimal/activator test"
+    command: "activator-1.3.2/activator test"
     invocation: "single"
     output: "exit-status"
 mysql:
