@@ -1,0 +1,17 @@
+@(customer: Client, clients: List[Client])
+
+@*************************************
+* Cliente List                       *
+*************************************@
+
+@header("ClienteList") { }
+
+@main("") {
+
+<ul>
+@for(client <- clients) {
+  <li>@client.nome @client.cpf @client.cnpj</li>
+}
+</ul>
+
+}

@@ -1,5 +1,3 @@
-@(elements: helper.FieldElements)
-
 @*************************************
 * Cliente                            *
 *************************************@
@@ -18,6 +16,7 @@
                         <legend>Cadastrar cliente</legend>
                     </div>
 
+                    @*
                     <div class="control-group @if(elements.hasErrors) {error}">
                         <label for="@elements.id" class="control-label">@elements.label</label>
                         <div class="controls">
@@ -25,6 +24,7 @@
                             <span class="help-inline">@elements.errors.mkString(", ")</span>
                         </div>
                     </div>
+                    *@
 
                     <!-- Name -->
                     <div class="form-group">

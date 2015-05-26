@@ -15,22 +15,24 @@ import views.html.*;
 public class ClientController extends Controller {
 
     public static Result index() {
-        //return ok(client.render());
-        return views.html.client.render("teste");
+        return ok(client.render());
     }
 
     public static Result save() {
-        //Client client = Form.form(Client.class).bindFromRequest().get();
-        Form<Client> form = Form.form(Client.class).bindFromRequest();
+        Client client = Form.form(Client.class).bindFromRequest().get();
+        client.save();
+        return redirect(routes.ClientController.index());
 
-        if (form.hasErrors()) {
-            return badRequest(client.render("hello, world", form));
-        }
-        else {
-            Client client = form.get();
-            client.save();
-            return redirect(routes.ClientController.index());
-        }
+        //Form<Client> form = Form.form(Client.class).bindFromRequest();
+
+        //if (form.hasErrors()) {
+            //return badRequest(client.render("hello, world", form));
+        //}
+        //else {
+            //Client client = form.get();
+            //client.save();
+            //return redirect(routes.ClientController.index());
+        //}
     }
 
     /*
