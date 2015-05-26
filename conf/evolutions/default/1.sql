@@ -1,10 +1,10 @@
 # --- Created by Ebean DDL
 # To stop Ebean DDL generation, remove this comment and start using Evolutions
 
-# --- !Ups
+# --- !Up
 
 create table blog (
-  id                        bigint auto_increment not null,
+  id                        integer auto_increment not null,
   header                    varchar(255),
   text                      TEXT,
   constraint pk_blog primary key (id))
@@ -21,7 +21,7 @@ create table client (
 ;
 
 create table comment (
-  id                        bigint auto_increment not null,
+  id                        integer auto_increment not null,
   text                      varchar(255),
   blog_id                   bigint,
   constraint pk_comment primary key (id))
