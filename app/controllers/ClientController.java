@@ -22,17 +22,13 @@ public class ClientController extends Controller {
         Client client = Form.form(Client.class).bindFromRequest().get();
         client.save();
         return redirect(routes.ClientController.index());
+    }
 
-        //Form<Client> form = Form.form(Client.class).bindFromRequest();
-
-        //if (form.hasErrors()) {
-            //return badRequest(client.render("hello, world", form));
-        //}
-        //else {
-            //Client client = form.get();
-            //client.save();
-            //return redirect(routes.ClientController.index());
-        //}
+    public static Result edit(int codCliente) {
+        Client clients = (Client) new Model.Finder<Integer, Client>(Integer.class, Client.class).byId(codCliente);
+        List<Client> list = new ArrayList<Client>();
+        list.add(clients);
+        return ok(toJson(list));
     }
 
     /*

@@ -13,7 +13,7 @@ public class Client extends Model {
     @Id
     public int codCliente;
 
-    @play.data.validation.Constraints.Required
+    //@play.data.validation.Constraints.Required
     public String nome;
 
     public String cpf;

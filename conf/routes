@@ -27,6 +27,7 @@ GET    /signup            controllers.LoginController.signup()
 #
 GET    /client            controllers.ClientController.index()
 GET    /client/list       controllers.ClientController.list()
+GET    /client/edit/:codCliente   controllers.ClientController.edit(codCliente: Int)
 POST   /client/save       controllers.ClientController.save()
 
 # Map static resources from the /public folder to the /assets URL path

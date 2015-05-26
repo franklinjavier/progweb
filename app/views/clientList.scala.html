@@ -1,4 +1,4 @@
-@(customer: Client, clients: List[Client])
+@(name: Client, clients: List[Client])
 
 @*************************************
 * Cliente List                       *
@@ -8,10 +8,30 @@
 
 @main("") {
 
-<ul>
-@for(client <- clients) {
-  <li>@client.nome @client.cpf @client.cnpj</li>
-}
-</ul>
-
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>CNPJ</th>
+            <th>Endereço</th>
+            <th>Cartão Créd.</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(client <- clients) {
+            <tr>
+                <th scope="row">@client.codCliente</th>
+                <td>@client.nome</td>
+                <td>@client.cpf</td>
+                <td>@client.cnpj</td>
+                <td>@client.endereco</td>
+                <td>@client.cartaoCredito</td>
+                <td><a href="/client/edit/@client.codCliente">Editar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
 }
