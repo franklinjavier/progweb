@@ -3,6 +3,7 @@ package models;
 import play.db.ebean.Model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+//import play.data.validation.Constraints;
 
 @Entity
 public class Client extends Model {
@@ -12,7 +13,9 @@ public class Client extends Model {
     @Id
     public int codCliente;
 
+    @play.data.validation.Constraints.Required
     public String nome;
+
     public String cpf;
     public String cnpj;
     public String endereco;

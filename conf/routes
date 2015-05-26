@@ -27,7 +27,7 @@ GET    /signup            controllers.LoginController.signup()
 #
 GET    /client            controllers.ClientController.index()
 GET    /client/list       controllers.ClientController.list()
-POST   /client/cadastrar  controllers.ClientController.cadastrar()
+POST   /client/save       controllers.ClientController.save()
 
 # Map static resources from the /public folder to the /assets URL path
 GET    /assets/*file   controllers.Assets.at(path="/public", file)

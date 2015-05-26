@@ -15,17 +15,57 @@ import views.html.*;
 public class ClientController extends Controller {
 
     public static Result index() {
-        return ok(client.render());
+        //return ok(client.render());
+        return views.html.client.render("teste");
     }
 
-    public static Result cadastrar() {
-        Client client = Form.form(Client.class).bindFromRequest().get();
-        client.save();
-        return redirect(routes.ClientController.index());
+    public static Result save() {
+        //Client client = Form.form(Client.class).bindFromRequest().get();
+        Form<Client> form = Form.form(Client.class).bindFromRequest();
+
+        if (form.hasErrors()) {
+            return badRequest(client.render("hello, world", form));
+        }
+        else {
+            Client client = form.get();
+            client.save();
+            return redirect(routes.ClientController.index());
+        }
     }
+
+    /*
+    public static Result getPersons() {
+        Person persons = (Person) new Model.Finder<Integer, Person>(Integer.class, Person.class).byId(107);
+
+        System.out.println(toJson(persons));
+
+        List<Person> list = new ArrayList<Person>();
+        list.add(persons);
+        return ok(toJson(list));
+    }
+
+    public static Result getUsers() {
+        List<Person> persons = new Model.Finder<String, Person>(String.class, Person.class).all();
+        Person person = (Person) new Model.Finder<Integer, Person>(Integer.class, Person.class).byId(107);
+        return ok(user.render(person, persons));
+    }
+
+    public static Result getJson() {
+
+        List<Person> persons = new Model.Finder<String, Person>(String.class, Person.class).all();
+
+        return ok(toJson(persons));
+    }
+    */
 
     public static Result list() {
         List<Client> clients = new Model.Finder<String, Client>(String.class, Client.class).all();
-        return ok(toJson(clients));
+        Client client = (Client) new Model.Finder<Integer, Client>(Integer.class, Client.class).byId(2);
+        return ok(clientList.render(client, clients));
     }
+
+    //public static Result list() {
+        //List<Client> clients = new Model.Finder<String, Client>(String.class, Client.class).all();
+        //return ok(toJson(clients));
+    //}
 }

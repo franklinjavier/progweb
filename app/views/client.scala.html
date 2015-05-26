@@ -1,18 +1,29 @@
+@(elements: helper.FieldElements)
+
 @*************************************
- * Cliente                           *
- *************************************@
+* Cliente                            *
+*************************************@
 
 @header("Cliente") { }
 
 @main("Welcome to Play") {
 
-    @helper.form(action = routes.ClientController.cadastrar()) {
+
+    @helper.form(action = routes.ClientController.save()) {
     <div class="container">
         <div class="row-fluid">
             <form class="form-horizontal">
                 <fieldset>
                     <div id="legend">
                         <legend>Cadastrar cliente</legend>
+                    </div>
+
+                    <div class="control-group @if(elements.hasErrors) {error}">
+                        <label for="@elements.id" class="control-label">@elements.label</label>
+                        <div class="controls">
+                            @elements.input
+                            <span class="help-inline">@elements.errors.mkString(", ")</span>
+                        </div>
                     </div>
 
                     <!-- Name -->
