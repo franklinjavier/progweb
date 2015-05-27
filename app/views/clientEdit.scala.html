@@ -1,25 +1,23 @@
-@*************************************
-* Cliente                            *
-*************************************@
+@( clientForm: Form[Client], codCliente: Long)
+@import helper._
 
 @header("Cliente") { }
+@main("Update Form") {
 
-@main("Welcome to Play") {
-
-    @helper.form(action = routes.ClientController.save()) {
+ 	@form(routes.ClientController.update(codCliente)) {
     <div class="container">
         <div class="row-fluid">
             <form class="form-horizontal">
                 <fieldset>
                     <div id="legend">
-                        <legend>Cadastrar cliente</legend>
+                        <legend>Editar cliente</legend>
                     </div>
 
                     <!-- Name -->
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="nome">Nome</label>
                         <div class="controls col-sm-10">
-                            <input type="text" id="nome" name="nome" placeholder="Informe o Nome" class="form-control" autofocus>
+                            @inputText(clientForm("nome"), 'class -> "form-control", 'placeholder -> "Informe o Nome")
                         </div>
                     </div>
 
@@ -27,7 +25,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="cpf">CPF</label>
                         <div class="controls col-sm-4">
-                            <input type="text" id="cpf" name="cpf" placeholder="Informe o CPF" class="form-control">
+                            @inputText(clientForm("cpf"), 'class -> "form-control", 'placeholder -> "Informe o CPF")
                         </div>
                     </div>
 
@@ -35,7 +33,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="cnpj">CNPJ</label>
                         <div class="controls col-sm-4">
-                            <input type="text" id="cnpj" name="cnpj" placeholder="Informe o CNPJ" class="form-control">
+                            @inputText(clientForm("cnpj"), 'class -> "form-control", 'placeholder -> "Informe o CNPJ")
                         </div>
                     </div>
 
@@ -43,7 +41,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="endereco">Endereço</label>
                         <div class="controls col-sm-10">
-                            <input type="text" id="endereco" name="endereco" placeholder="Informe o Endereço" class="form-control">
+                            @inputText(clientForm("endereco"), 'class -> "form-control", 'placeholder -> "Informe o Endereço")
                         </div>
                     </div>
 
@@ -51,7 +49,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="">Cartão Créd.</label>
                         <div class="controls col-sm-4">
-                            <input type="text" id="cartaoCredito" name="cartaoCredito" placeholder="Informe o Cartão de Crédito" class="form-control">
+                            @inputText(clientForm("cartaoCredito"), 'class -> "form-control", 'placeholder -> "Informe o Cartão de Crédito")
                         </div>
                     </div>
 
@@ -66,6 +64,5 @@
             </form>
         </div>
     </div>
-    }
-
+	}
 }

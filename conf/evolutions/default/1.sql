@@ -4,7 +4,7 @@
 # --- !Ups
 
 create table client (
-  cod_cliente               integer auto_increment not null,
+  cod_cliente               bigint auto_increment not null,
   nome                      varchar(255),
   cpf                       varchar(255),
   cnpj                      varchar(255),

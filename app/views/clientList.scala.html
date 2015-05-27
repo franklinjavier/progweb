@@ -1,4 +1,4 @@
-@(name: Client, clients: List[Client])
+@(clients: List[Client] )
 
 @*************************************
 * Cliente List                       *
@@ -29,7 +29,10 @@
                 <td>@client.cnpj</td>
                 <td>@client.endereco</td>
                 <td>@client.cartaoCredito</td>
-                <td><a href="/client/edit/@client.codCliente">Editar</a></td>
+                <td>
+                    <a href="/client/edit/@client.codCliente" title="Editar"><i class="ico edit"></i></a>
+                    <a href="/client/delete/@client.codCliente" title="Deletar"><i class="ico delete"></i></a>
+                </td>
             </tr>
         }
     </tbody>
