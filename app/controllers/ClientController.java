@@ -1,12 +1,10 @@
 package controllers;
 
 import static play.data.Form.form;
-import static play.libs.Json.toJson;
+//import static play.libs.Json.toJson;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
-import com.avaje.ebean.*;
-
 
 import models.Client;
 import play.data.Form;
