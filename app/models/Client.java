@@ -14,9 +14,7 @@ public class Client extends Model {
     @Id
     public Long codCliente;
 
-    //@play.data.validation.Constraints.Required
     public String nome;
-
     public String cpf;
     public String cnpj;
     public String endereco;
