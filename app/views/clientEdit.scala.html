@@ -1,8 +1,8 @@
-@( clientForm: Form[Client], codCliente: Long)
+@(clientForm: Form[Client], codCliente: Long, currentSession: String)
 @import helper._
 
-@header("Cliente") { }
-@main("Update Form") {
+@header("Atualizar cadastro") { }
+@main("Cliente.edit form") {
 
  	@form(routes.ClientController.update(codCliente)) {
     <div class="container">

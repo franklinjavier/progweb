@@ -11,10 +11,7 @@ import play.data.Form;
 import play.db.ebean.Model;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.client;
-import views.html.clientList;
-import views.html.clientEdit;
-import views.html.clientFind;
+import views.html.client.*;
 
 public class ClientController extends Controller {
 
@@ -28,7 +25,8 @@ public class ClientController extends Controller {
 	 * @return Result This method returns client.scala.html
 	 */
     public static Result index() {
-        return ok(client.render());
+        String currentSession = "list";
+        return ok(client.render(null, null, currentSession));
     }
 
     /**
@@ -53,9 +51,10 @@ public class ClientController extends Controller {
 	 * @return Result This method redirects to update.scala.html
 	 */
     public static Result edit(Long codCliente) {
+        String currentSession = "edit";
         Form<Client> clientForm = form(Client.class).fill(
                 Client.find.byId(codCliente));
-        return ok(clientEdit.render(clientForm, codCliente));
+        return ok(client.render(clientForm, codCliente, currentSession));
     }
 
     /**
@@ -67,9 +66,10 @@ public class ClientController extends Controller {
 	 * @return Result This method redirects to clientList.scala.html
 	 */
     public static Result update(Long codCliente) {
+        String currentSession = "update";
 		Form<Client> clientForm = form(Client.class).bindFromRequest();
 		if (clientForm.hasErrors()) {
-            return badRequest(clientEdit.render(clientForm, codCliente));
+            return badRequest(client.render(clientForm, codCliente, currentSession));
 		}
 		clientForm.get().update(codCliente);
 
