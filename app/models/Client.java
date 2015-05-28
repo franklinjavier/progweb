@@ -20,6 +20,9 @@ public class Client extends Model {
     public String endereco;
     public String cartaoCredito;
 
+    @Version
+    public Timestamp lastUpdate;
+
     public static Finder<Long, Client> find = new Finder<Long, Client>(
             Long.class, Client.class);
 }

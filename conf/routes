@@ -34,5 +34,18 @@ GET    /client/delete/:codCliente   controllers.ClientController.delete(codClien
 GET    /client/find                 controllers.ClientController.find(nome ?= null)
 POST   /client/save                 controllers.ClientController.save()
 
+
+#
+# Produto
+#
+GET    /product                      controllers.ProductController.index()
+GET    /product/new                  controllers.ProductController.index()
+GET    /product/list                 controllers.ProductController.list()
+GET    /product/edit/:codProd        controllers.ProductController.edit(codProd: Long)
+POST   /product/update/:codProd      controllers.ProductController.update(codProd: Long)
+GET    /product/delete/:codProd      controllers.ProductController.delete(codProd: Long)
+GET    /product/find                 controllers.ProductController.find(nome ?= null)
+POST   /product/save                 controllers.ProductController.save()
+
 # Map static resources from the /public folder to the /assets URL path
 GET    /assets/*file   controllers.Assets.at(path="/public", file)
