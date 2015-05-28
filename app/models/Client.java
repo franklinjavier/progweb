@@ -1,12 +1,8 @@
 package models;
 
 import java.sql.Timestamp;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Version;
-
-import play.db.ebean.Model;
+import javax.persistence.*;
+import play.db.ebean.*;
 
 @Entity
 public class Client extends Model {
