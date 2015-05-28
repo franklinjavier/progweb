@@ -1,0 +1,35 @@
+@*************************************
+* Formulario de busca                *
+*************************************@
+
+@header("Find") { }
+@main("Find 2") {
+    @helper.form(action = routes.ClientController.find()) {
+    <div class="container">
+        <div class="row-fluid">
+            <form class="form-horizontal">
+                <fieldset>
+                    <div id="legend">
+                        <legend>Localizar cliente</legend>
+                    </div>
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="nome">Nome</label>
+                        <div class="controls col-sm-10">
+                            <input type="text" id="nome" name="nome" placeholder="Informe o Nome" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <!-- Submit -->
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Localizar</button>
+                            <a href="@routes.ClientController.list()" class="btn btn-default">Voltar</a>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    }
+}

@@ -35,6 +35,9 @@
 	border-color: #ccc;
 }
 
+.form-group dt { display: none; }
+dl { margin: 0; }
+
 .form-group { overflow: hidden; }
 label { height: 40px; padding-top: 8px; }
 legend { padding-left: 10px; }
@@ -42,3 +45,20 @@ legend { padding-left: 10px; }
 label[class*="col-sm-"] {
     height: 30px;
 }
+
+.ico {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.edit {
+    background: url(../images/edit.png);
+}
+
+.delete {
+    background: url(../images/delete.png);
+}
+

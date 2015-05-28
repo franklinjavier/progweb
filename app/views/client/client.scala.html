@@ -1,0 +1,108 @@
+@(clientForm: Form[Client], codCliente: Long, currentSession: String)
+@import helper._
+
+@*************************************
+* Cliente                            *
+*************************************@
+
+@if(currentSession != "edit") {
+    @header("Cadastrar cliente") { }
+} else {
+    @header("Editar cliente") { }
+}
+@main("Cliente.new form") {
+
+    @if(currentSession != "edit") {
+    <form action="/client/save" method="POST">
+       @* @form(routes.ClientController.save()) { *@
+    } else {
+    <form action="/client/update/@codCliente" method="POST">
+       @* @form(routes.ClientController.update(codCliente)) { *@
+    }
+    <div class="container">
+        <div class="row-fluid">
+            <form class="form-horizontal">
+                <fieldset>
+                    <div id="legend">
+                        @if(currentSession != "edit") {
+                            <legend>Cadastrar cliente</legend>
+                        } else {
+                            <legend>Editar cliente</legend>
+                        }
+                    </div>
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="nome">Nome</label>
+                        <div class="controls col-sm-10">
+                        @if(currentSession != "edit") {
+                            <input type="text" id="nome" name="nome" placeholder="Informe o Nome" class="form-control" autofocus>
+                        } else {
+                            @inputText(clientForm("nome"), 'class -> "form-control", 'placeholder -> "Informe o Nome")
+                        }
+                        </div>
+                    </div>
+
+                    <!-- CPF -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="cpf">CPF</label>
+                        <div class="controls col-sm-4">
+                            @if(currentSession != "edit") {
+                                <input type="text" id="cpf" name="cpf" placeholder="Informe o CPF" class="form-control">
+                            } else {
+                                @inputText(clientForm("cpf"), 'class -> "form-control", 'placeholder -> "Informe o CPF")
+                            }
+                        </div>
+                    </div>
+
+                    <!-- CNPJ -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="cnpj">CNPJ</label>
+                        <div class="controls col-sm-4">
+                            @if(currentSession != "edit") {
+                                <input type="text" id="cnpj" name="cnpj" placeholder="Informe o CNPJ" class="form-control">
+                            } else {
+                                @inputText(clientForm("cnpj"), 'class -> "form-control", 'placeholder -> "Informe o CNPJ")
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Endereco -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="endereco">Endereço</label>
+                        <div class="controls col-sm-10">
+                            @if(currentSession != "edit") {
+                                <input type="text" id="endereco" name="endereco" placeholder="Informe o Endereço" class="form-control">
+                            } else {
+                                @inputText(clientForm("endereco"), 'class -> "form-control", 'placeholder -> "Informe o Endereço")
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Cartao de Credito -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="">Cartão Créd.</label>
+                        <div class="controls col-sm-4">
+                            @if(currentSession != "edit") {
+                                <input type="text" id="cartaoCredito" name="cartaoCredito" placeholder="Informe o Cartão de Crédito" class="form-control">
+                            } else {
+                                @inputText(clientForm("cartaoCredito"), 'class -> "form-control", 'placeholder -> "Informe o Cartão de Crédito")
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Cadastrar</button>
+                            <a href="@routes.ClientController.list()" class="btn btn-default">Voltar</a>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</form>
+
+}

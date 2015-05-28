@@ -1,14 +1,10 @@
 $(function() {
 
-    $('a').on('click', function(){
-
-        var $this = $(this),
-            hash = $this.attr('href');
-
-        if ( hash !== '#' ) {
-            console.log(hash);
-        }
-
-    });
+    // Se existir campo texto,
+    // seta autofocus
+    var $text = document.querySelector('input[type=text]');
+    if ( $text ) {
+        $text.focus();
+    }
 
 });

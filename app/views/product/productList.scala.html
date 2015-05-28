@@ -1,0 +1,47 @@
+@(products: List[Product] )
+
+@*************************************
+* Produtos List                      *
+*************************************@
+
+@title = @{"Listagem de produtos"}
+@header(title) { }
+@main("Product.list form") {
+
+    <div class="container">
+        <div class="row-fluid">
+            <div class="form-horizontal">
+                <fieldset>
+                    <legend>@title</legend>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Preço Compra</th>
+                                <th>Preço Venda</th>
+                                <th>Qtd. Estoque</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(product <- products) {
+                                <tr>
+                                    <th scope="row">@product.codProd</th>
+                                    <td>@product.nome</td>
+                                    <td>@product.precoCompra</td>
+                                    <td>@product.precoVenda</td>
+                                    <td>@product.qtdEstoque</td>
+                                    <td>
+                                        <a href="/product/edit/@product.codProd" title="Editar"><i class="ico edit"></i></a>
+                                        <a href="/product/delete/@product.codProd" title="Deletar"><i class="ico delete"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+}

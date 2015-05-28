@@ -2,3 +2,8 @@
 
 <h1>Welcome @customer.name!</h1>
 
+<ul>
+@for(order <- orders) {
+  <li>@order.name</li>
+}
+</ul>

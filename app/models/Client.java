@@ -1,16 +1,18 @@
 package models;
 
-import play.db.ebean.Model;
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Version;
+
+import play.db.ebean.Model;
 
 @Entity
 public class Client extends Model {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
-    public int codCliente;
+    public Long codCliente;
 
     public String nome;
     public String cpf;
@@ -18,4 +20,9 @@ public class Client extends Model {
     public String endereco;
     public String cartaoCredito;
 
+    @Version
+    public Timestamp lastUpdate;
+
+    public static Finder<Long, Client> find = new Finder<Long, Client>(
+            Long.class, Client.class);
 }

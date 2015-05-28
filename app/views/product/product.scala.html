@@ -1,0 +1,97 @@
+@(productForm: Form[Product], codProd: Long, currentSession: String)
+@import helper._
+
+@*************************************
+* Produto                            *
+*************************************@
+
+@if(currentSession != "edit") {
+    @header("Cadastrar produto") { }
+} else {
+    @header("Editar produto") { }
+}
+@main("Produto.new form") {
+
+    @if(currentSession != "edit") {
+    <form action="/product/save" method="POST">
+    } else {
+    <form action="/product/update/@codProd" method="POST">
+    }
+    <div class="container">
+        <div class="row-fluid">
+            <form class="form-horizontal">
+                <fieldset>
+                    <div id="legend">
+                        @if(currentSession != "edit") {
+                            <legend>Cadastrar produto</legend>
+                        } else {
+                            <legend>Editar produto</legend>
+                        }
+                    </div>
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="nome">Nome</label>
+                        <div class="controls col-sm-10">
+                        @if(currentSession != "edit") {
+                            <input type="text" id="nome" name="nome" placeholder="Informe o Nome" class="form-control" autofocus>
+                        } else {
+                            @inputText(productForm("nome"), 'class -> "form-control", 'placeholder -> "Informe o Nome")
+                        }
+                        </div>
+                    </div>
+
+                    <!-- Preço compra -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2"
+                            for="precoCompra">Preço Compra</label>
+                        <div class="controls col-sm-4">
+                            @if(currentSession != "edit") {
+                                <input type="text" id="precoCompra" name="precoCompra" placeholder="Informe o preço da compra" class="form-control">
+                            } else {
+                                @inputText(productForm("precoCompra"), 'class -> "form-control", 'placeholder -> "Informe o preço da compra")
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Preço venda -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2"
+                            for="precoVenda">Preço Venda</label>
+                        <div class="controls col-sm-4">
+                            @if(currentSession != "edit") {
+                                <input type="text" id="precoVenda" name="precoVenda" placeholder="Informe o preço da venda" class="form-control">
+                            } else {
+                                @inputText(productForm("precoVenda"), 'class -> "form-control", 'placeholder -> "Informe o preço da venda")
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Qtd. estoque -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2"
+                            for="qtdEstoque">Qtd. Estoque</label>
+                        <div class="controls col-sm-4">
+                            @if(currentSession != "edit") {
+                                <input type="number" id="qtdEstoque" name="qtdEstoque" placeholder="Informe a quantidade em estoque" class="form-control">
+                            } else {
+                                @inputText(productForm("qtdEstoque"), 'type -> "number", 'class -> "form-control", 'placeholder -> "Informe a quantidade em estoque")
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Cadastrar</button>
+                            <a href="@routes.ProductController.list()" class="btn btn-default">Voltar</a>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</form>
+
+}
