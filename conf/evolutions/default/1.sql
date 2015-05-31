@@ -86,6 +86,13 @@ create table product (
   constraint pk_product primary key (cod_prod))
 ;
 
+create table user (
+  id                        integer auto_increment not null,
+  username                  varchar(255),
+  auth_token                varchar(255),
+  constraint pk_user primary key (id))
+;
+
 
 
 
@@ -112,6 +119,8 @@ drop table pedido_detalhe;
 drop table person;
 
 drop table product;
+
+drop table user;
 
 SET FOREIGN_KEY_CHECKS=1;
 

@@ -7,10 +7,10 @@ import java.util.List;
 import models.Product;
 import play.data.Form;
 import play.db.ebean.Model;
-import play.mvc.Controller;
-import play.mvc.Result;
+import play.mvc.*;
 import views.html.product.*;
 
+@Security.Authenticated(Auth.class)
 public class ProductController extends Controller {
 
     final static Form<Product> productForm = form(Product.class);
@@ -121,44 +121,4 @@ public class ProductController extends Controller {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    public static Result getPersons() {
-        Person persons = (Person) new Model.Finder<Integer, Person>(Integer.class, Person.class).byId(107);
-
-        System.out.println(toJson(persons));
-
-        List<Person> list = new ArrayList<Person>();
-        list.add(persons);
-        return ok(toJson(list));
-    }
-
-    public static Result getUsers() {
-        List<Person> persons = new Model.Finder<String, Person>(String.class, Person.class).all();
-        Person person = (Person) new Model.Finder<Integer, Person>(Integer.class, Person.class).byId(107);
-        return ok(user.render(person, persons));
-    }
-
-    public static Result getJson() {
-
-        List<Person> persons = new Model.Finder<String, Person>(String.class, Person.class).all();
-
-        return ok(toJson(persons));
-    }
-
-    public static Result list() {
-        List<Product> products = new Model.Finder<String, Product>(String.class, Product.class).all();
-        return ok(toJson(products));
-    }
-    */
 }

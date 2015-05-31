@@ -1,10 +1,14 @@
+@(form: Form[LoginController.Login])
+
+
 @*************************************
  * Login                             *
  *                                   *
  *************************************@
 
- @header("Login") { }
+@head("Login")
 
+@helper.form(routes.LoginController.authenticate) {
 <div class="login">
   <div class="row">
     <div class="panel panel-default">
@@ -13,9 +17,16 @@
       </div>
       <div class="panel-body">
         <form accept-charset="UTF-8" role="form">
+
+            @if(form.hasGlobalErrors) {
+                <p class="error">
+                    @form.globalError.message
+                </p>
+            }
+
           <fieldset>
             <div class="form-group">
-              <input class="form-control" placeholder="E-mail" name="email" type="text" autofocus>
+              <input class="form-control" placeholder="E-mail" name="email" type="text" autofocus value="@form("email").value">
             </div>
             <div class="form-group">
               <input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -27,3 +38,4 @@
     </div>
   </div>
 </div>
+}

@@ -1,18 +1,16 @@
 package controllers;
 
 import static play.data.Form.form;
-//import static play.libs.Json.toJson;
-
-//import java.util.ArrayList;
 import java.util.List;
 
 import models.Client;
 import play.data.Form;
 import play.db.ebean.Model;
-import play.mvc.Controller;
-import play.mvc.Result;
+import play.mvc.*;
 import views.html.client.*;
 
+
+@Security.Authenticated(Auth.class)
 public class ClientController extends Controller {
 
     final static Form<Client> clientForm = form(Client.class);
@@ -97,7 +95,7 @@ public class ClientController extends Controller {
      */
     public static Result list() {
         List<Client> clients = new Model.Finder<String, Client>(String.class, Client.class).all();
-        Client client = (Client) new Model.Finder<Integer, Client>(Integer.class, Client.class).byId(2);
+        //Client client = (Client) new Model.Finder<Integer, Client>(Integer.class, Client.class).byId(2);
         return ok(clientList.render(clients));
     }
 
@@ -109,16 +107,33 @@ public class ClientController extends Controller {
 	 *
 	 * @return Result This method redirects to update.scala.html
 	 */
-    public static Result find(String nome) {
+    public static Result find(String cpf, String cnpj) {
 
-        if ( nome != null ) {
-            List<Client> clients = new Model.Finder(String.class, Client.class)
-                .where().like("nome", "%" + nome + "%").findList();
+        if ( cpf != null ) {
 
-            return ok(clientList.render(clients));
+            // Localiza cliente por cnpj
+            if ( cnpj != null ) {
+
+                List<Client> clients = new Model.Finder(String.class, Client.class)
+                    .where().like("cnpj", "%" + cnpj + "%").findList();
+
+                // Renderiza view com clientes localizados
+                return ok(clientList.render(clients));
+
+            } else {
+            // Localiza cliente por cpf
+
+                List<Client> clients = new Model.Finder(String.class, Client.class)
+                    .where().like("cpf", "%" + cpf + "%").findList();
+
+                // Renderiza view com clientes localizados
+                return ok(clientList.render(clients));
+            }
+
 
         } else {
 
+            // Renderiza view sem cliente
             return ok(clientFind.render());
         }
     }

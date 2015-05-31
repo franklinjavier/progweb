@@ -13,6 +13,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.*;
 
+@Security.Authenticated(Auth.class)
 public class UserController extends Controller {
 
     public static Result index() {
