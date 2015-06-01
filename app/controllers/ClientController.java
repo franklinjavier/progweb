@@ -23,9 +23,22 @@ public class ClientController extends Controller {
 	 * @return Result This method returns client.scala.html
 	 */
     public static Result index() {
-        String currentSession = "list";
+        return redirect(routes.ClientController.newClient());
+    }
+
+	/**
+	 * This method is used to get the index Page which I have set to
+	 * client.scala.html
+	 *
+	 *
+	 * @return Result This method returns client.scala.html
+	 */
+    public static Result newClient() {
+        String currentSession = "new";
         return ok(client.render(null, null, currentSession));
     }
+
+
 
     /**
      * This method is used to save the client data to database

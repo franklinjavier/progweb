@@ -28,7 +28,7 @@ GET    /logout            controllers.LoginController.logout()
 # Cliente
 #
 GET    /client                      controllers.ClientController.index()
-GET    /client/new                  controllers.ClientController.index()
+GET    /client/new                  controllers.ClientController.newClient()
 GET    /client/list                 controllers.ClientController.list()
 GET    /client/edit/:codCliente     controllers.ClientController.edit(codCliente: Long)
 POST   /client/update/:codCliente   controllers.ClientController.update(codCliente: Long)
