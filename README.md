@@ -18,6 +18,10 @@ Play Framework 2.3.x
 
 
 ## Como rodar
-- $ activator run
+- Baixar o PlayFramework https://playframework.com/download
+- Setar variavel de ambiente para conseguir rodar o ```activator```
+ - ```export PATH=$PATH:/path/do/activator```
+- ```git clone https://github.com/andreleite/progweb.git```
+- ```cd progweb```
+- ```activator run```
 - Abra no seu navegador http://localhost:9000
-
