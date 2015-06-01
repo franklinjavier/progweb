@@ -11,7 +11,7 @@ public class NotaFiscal extends Model {
     public Long codNota;
 
     public Long numNota;
-    public String desc;
+    public String descricao;
     public float valorTotal;
 
     @Version

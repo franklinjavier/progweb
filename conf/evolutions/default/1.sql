@@ -40,7 +40,7 @@ create table dinheiro (
 create table nota_fiscal (
   cod_nota                  bigint auto_increment not null,
   num_nota                  bigint,
-  desc                      varchar(255),
+  descricao                 varchar(255),
   valor_total               float,
   last_update               datetime not null,
   constraint pk_nota_fiscal primary key (cod_nota))
