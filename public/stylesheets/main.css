@@ -9,12 +9,12 @@
 
 .login {
     margin: auto;
-    width: 300px;
-    height: 300px;
+    width: 270px;
+    height: 270px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -150px  -150px;
+    margin: -135px  -135px;
 }
 
 .form-control {
@@ -62,3 +62,9 @@ label[class*="col-sm-"] {
     background: url(../images/delete.png);
 }
 
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1000px;
+    }
+}

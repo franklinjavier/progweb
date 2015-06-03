@@ -9,10 +9,10 @@ import models.Person;
 
 import play.data.Form;
 import play.db.ebean.Model;
-import play.mvc.Controller;
-import play.mvc.Result;
+import play.mvc.*;
 import views.html.*;
 
+@Security.Authenticated(Auth.class)
 public class UserController extends Controller {
 
     public static Result index() {

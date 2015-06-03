@@ -5,11 +5,15 @@
 * Produto                            *
 *************************************@
 
+
 @if(currentSession != "edit") {
-    @header("Cadastrar produto") { }
+    @head("Cadastrar produto")
 } else {
-    @header("Editar produto") { }
+    @head("Editar produto")
 }
+
+@header()
+
 @main("Produto.new form") {
 
     @if(currentSession != "edit") {

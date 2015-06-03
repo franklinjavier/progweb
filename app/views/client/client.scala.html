@@ -5,11 +5,14 @@
 * Cliente                            *
 *************************************@
 
+@head("Cadastrar cliente")
+
 @if(currentSession != "edit") {
-    @header("Cadastrar cliente") { }
+    @header()
 } else {
-    @header("Editar cliente") { }
+    @header()
 }
+
 @main("Cliente.new form") {
 
     @if(currentSession != "edit") {

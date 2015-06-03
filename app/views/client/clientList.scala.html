@@ -5,7 +5,9 @@
 *************************************@
 
 @title = @{"Listagem de clientes"}
-@header(title) { }
+@head(title)
+@header()
+
 @main("Client.list form") {
 
     <div class="container">
@@ -36,7 +38,7 @@
                                     <td>@client.cartaoCredito</td>
                                     <td>
                                         <a href="/client/edit/@client.codCliente" title="Editar"><i class="ico edit"></i></a>
-                                        <a href="/client/delete/@client.codCliente" title="Deletar"><i class="ico delete"></i></a>
+                                        <a href="/client/delete/@client.codCliente" class="btn-delete" title="Deletar"><i class="ico delete"></i></a>
                                     </td>
                                 </tr>
                             }
